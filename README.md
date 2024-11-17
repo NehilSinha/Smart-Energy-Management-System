@@ -1,7 +1,3 @@
-Sure! Below is a sample `README.md` for your website, which describes the functionality, backend, frontend, and the purpose of the various features.
-
----
-
 # Smart Device Management Website
 
 This website is a tool for managing and monitoring smart devices (e.g., plugs), tracking their energy consumption, and performing automatic control based on a machine learning model's analysis. The system uses a **Flask** backend in Python, a **SQLite** database for storing device data, and an **Angular** frontend to interact with users. The website also includes an admin functionality for maintenance mode control via a PIN.
