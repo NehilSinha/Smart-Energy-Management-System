@@ -1,0 +1,27 @@
+<h2 class="text-2xl font-semibold mb-6">Device History</h2>
+
+<!-- Display if there are any devices with history -->
+<div *ngIf="allDevicesHistory && allDevicesHistory.length > 0">
+  <div *ngFor="let device of allDevicesHistory" class="bg-white p-6 rounded-lg shadow-md mb-6">
+    <h3 class="text-xl font-semibold mb-4">{{ device.name }} (ID: {{ device.device_id }})</h3>
+
+    <!-- Display device history if available -->
+    <div *ngIf="device.history && device.history.length > 0">
+      <ul class="space-y-2">
+        <li *ngFor="let entry of device.history" class="bg-gray-100 p-3 rounded-lg">
+          <p class="text-sm text-gray-700">{{ entry.date }} - <span class="font-semibold">{{ entry.power_consumption }} W</span></p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Message if no history available for the device -->
+    <div *ngIf="!device.history || device.history.length === 0" class="bg-red-100 text-red-700 p-4 rounded-lg">
+      <p class="font-semibold">No history data available for this device.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Message if no devices with history -->
+<div *ngIf="!allDevicesHistory || allDevicesHistory.length === 0" class="bg-yellow-100 text-yellow-700 p-4 rounded-lg">
+  <p class="font-semibold">No devices with history data available.</p>
+</div>

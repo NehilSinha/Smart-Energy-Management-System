@@ -1,0 +1,33 @@
+<h2 class="text-2xl font-semibold mb-6">Energy Analysis</h2>
+
+<!-- Button to trigger the analysis -->
+<button (click)="analyzeAndTurnOff()" class="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-colors duration-300 mb-6">
+  Analyze and Turn Off Idle Devices
+</button>
+
+<!-- Display analysis results only if there are any -->
+<div *ngIf="analysisResults.length > 0" class="bg-gray-100 p-6 rounded-lg shadow-lg">
+  
+  <!-- Explanation of the analysis process -->
+  <p class="font-semibold text-xl text-gray-800 mb-4">Analysis Process:</p>
+  <p class="mb-6 text-gray-700">The system analyzes the devices based on their power consumption history. Each device is assessed using the following steps:</p>
+  
+  <ul class="list-disc pl-6 space-y-2 mb-6 text-gray-700">
+    <li><strong>Step 1:</strong> Collect power consumption data for each device over time.</li>
+    <li><strong>Step 2:</strong> Calculate the average power consumption over the last few readings.</li>
+    <li><strong>Step 3:</strong> Compare the average consumption to a predefined threshold.</li>
+    <li><strong>Step 4:</strong> If the device’s consumption is below the threshold, it is considered idle and is turned off automatically.</li>
+  </ul>
+  
+  <!-- Display the results for each device -->
+  <p class="font-semibold text-xl text-gray-800 mb-4">Results:</p>
+  <div *ngFor="let result of analysisResults" class="border-t pt-4 mb-4">
+    <p class="text-gray-800 font-medium">Device ID: <span class="font-bold text-blue-600">{{ result.device_id }}</span></p>
+    <p class="text-gray-700" *ngIf="result.turned_off">
+      The device was turned off due to low power consumption, indicating it was idle.
+    </p>
+    <p class="text-gray-700" *ngIf="!result.turned_off">
+      The device is still in use as its power consumption is above the idle threshold.
+    </p>
+  </div>
+</div>

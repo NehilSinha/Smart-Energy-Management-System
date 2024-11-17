@@ -1,0 +1,29 @@
+<div *ngIf="isVisible" class="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+    <h2 class="text-xl font-semibold mb-4">Welcome to The Smart Energy System!</h2>
+    <p class="mb-4">This website uses a combination of Flask (backend) and Angular (frontend) to manage and analyze your devices' energy consumption.</p>
+
+    <!-- Explanation of how the website works -->
+    <div class="mb-4">
+      <p class="font-semibold text-lg mb-2">How it Works:</p>
+      <ul class="list-disc pl-6 mb-4">
+        <li><strong>API Backend (Flask):</strong> The Flask server manages the devices, records their power consumption, and processes the data.</li>
+        <li><strong>Device Control:</strong> You can toggle the status of devices (turning them on/off) and view their history of power consumption.</li>
+        <li><strong>Machine Learning Model:</strong> The system uses an ML model to analyze power consumption trends. It predicts when a device is idle based on its usage history and automatically turns off devices with low power consumption.</li>
+      </ul>
+    </div>
+
+    <div class="mb-4">
+      <p class="font-semibold text-lg mb-2">Machine Learning Analysis:</p>
+      <p>The system analyzes the power consumption of your devices using a <strong>Linear Regression</strong> model. Here's the process:</p>
+      <ul class="list-disc pl-6">
+        <li><strong>Step 1:</strong> Collect power consumption data from each device.</li>
+        <li><strong>Step 2:</strong> Use the last few data points to train a machine learning model.</li>
+        <li><strong>Step 3:</strong> Predict the next power consumption value based on historical data.</li>
+        <li><strong>Step 4:</strong> If the predicted value is below a certain threshold, the device is considered idle and is automatically turned off.</li>
+      </ul>
+    </div>
+
+    <button (click)="closePopup()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-200">Close</button>
+  </div>
+</div>
